@@ -1,7 +1,13 @@
-version: 2.1
-:ORBS:
-  Node: circleci/node@3.0.0
-    workflows:
-      Node-tests:
-        Jobs:
-          -node/test
+version: 2.0
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.0.0
+      steps:
+        - checkout
+        - run: Npm install
+        - run: npm start &
+        - run npm test
+
+
+  
