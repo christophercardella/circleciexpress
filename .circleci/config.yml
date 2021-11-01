@@ -1,13 +1,9 @@
-version: 2.0
-jobs:
-  build:
-    docker: # the docker excecutor type
-      - image: circleci/node:10.0.0
-      steps:
-        - checkout
-        - run: Npm install
-        - run: npm start &
-        - run npm test
-
-
+version: 2.1
+orbs:
+  Node: circleci/node@3.0.0
+workflows:
+  Node-tests:
+    Jobs:
+     - node/test
+      
   
